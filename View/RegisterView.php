@@ -4,7 +4,7 @@ class RegisterView
     public function displayRegistro($errors = [])
     {
         echo '
-            <form action="register.php" method="post">
+            <form action="cadastrar" method="post">
                 <div class="form-group">
                     <label>Nome de usuário</label>
                     <input type="text" name="username" class="form-control" value="' . $_POST['username'] . '">
@@ -23,7 +23,7 @@ class RegisterView
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Registrar">
                 </div>
-                <p>Já tem uma conta? <a href="login.php">Faça login agora</a>.</p>
+                <p>Já tem uma conta? <a href="logar">Faça login agora</a>.</p>
             </form>
         ';
     }

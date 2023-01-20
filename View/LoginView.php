@@ -6,7 +6,7 @@ class LoginView
     public function displayLogin($errors = [])
     {
         echo '
-                <form action="login.php" method="post">
+                <form action="logar" method="post">
                     <div class="form-group">
                         <label>Nome de usuário</label>
                         <input type="text" name="username" class="form-control" value="' . $_POST['username'] . '">
@@ -20,7 +20,7 @@ class LoginView
                     <div <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Login">
                     </div>
-                    <p>Não tem uma conta? <a href="register.php">Cadastre-se agora</a>.</p>
+                    <p>Não tem uma conta? <a href="cadastrar">Cadastre-se agora</a>.</p>
                 </form>
         ';
     }

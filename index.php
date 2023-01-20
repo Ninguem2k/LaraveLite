@@ -5,13 +5,13 @@ require_once("./Roter/DynamicRouter.php");
 
 
 $router = new DynamicRouter();
-$router->add("/", "HomeController@index");
+$router->add("", "HomeController@index");
 $router->add("home", "HomeController@index");
 $router->add("logar", "AuthController@login");
 $router->add("cadastrar", "AuthController@register");
-$router->add("pedido/agendar", "SchedulingController@agendar");
-$router->add("pedido/listar", "SchedulingController@listar");
-$router->add("pedido/visualizar/([0-9]+)", "SchedulingController@visualizar");
-$router->add("pedido/editar/([0-9]+)", "SchedulingController@editar");
-$router->add("pedido/excluir/([0-9]+)", "SchedulingController@excluir");
+$router->add("pedido/visualizar/([0-9]+)", "SchedulingController@index");
+$router->add("pedido/listar", "SchedulingController@show");
+$router->add("pedido/agendar", "SchedulingController@store");
+$router->add("pedido/editar/([0-9]+)", "SchedulingController@update");
+$router->add("pedido/excluir/([0-9]+)", "SchedulingController@destroy");
 $router->run();

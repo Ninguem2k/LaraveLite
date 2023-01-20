@@ -1,11 +1,7 @@
-
 <?php
-
-require_once("./Roter/DynamicRouter.php");
-
+require_once("./DynamicRouter.php");
 
 $router = new DynamicRouter();
-$router->add("/", "HomeController@index");
 $router->add("home", "HomeController@index");
 $router->add("logar", "AuthController@login");
 $router->add("cadastrar", "AuthController@register");

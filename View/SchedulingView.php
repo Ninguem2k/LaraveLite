@@ -5,7 +5,6 @@ class SchedulingView
     public function exibirPaginaAgendamento()
     {
         echo "
-            <form action='/agendar' method='post'>
                 <label>Data:</label>
                 <input type='date' name='data'>
 
@@ -19,7 +18,7 @@ class SchedulingView
                 <textarea name='descricao'></textarea>
 
                 <input type='submit' value='Agendar'>
-            </form>";
+            ";
     }
 
     public function exibirPaginaVisualizacao($agendamento)

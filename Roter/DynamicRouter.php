@@ -1,6 +1,7 @@
 <?php
 require_once './Controller/AuthController.php';
 require_once './Controller/HomeController.php';
+require_once './Controller/SchedulingController.php';
 
 class DynamicRouter
 {

@@ -1,6 +1,7 @@
 <?php
-require_once "../Model/SchedulingModel.php";
-require_once "../View/SchedulingView.php";
+
+require_once "./Model\SchedulingModal.php";
+require_once "./View/SchedulingView.php";
 
 class SchedulingController
 {

@@ -1,6 +1,6 @@
 <?php
-require_once "../Model/UserModel.php";
-require_once "../View/RegisterView.php";
+require_once "./Model/UserModel.php";
+require_once "./View/RegisterView.php";
 
 
 class RegisterController

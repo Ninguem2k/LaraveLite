@@ -1,4 +1,8 @@
 <?php
+
+
+
+require_once "./Config/Config.php";
 class SchedulingModel
 {
     private $pdo;

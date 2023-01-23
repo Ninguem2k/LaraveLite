@@ -1,0 +1,252 @@
+
+body,ul,p {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	font-size: 1.2rem;
+	font-family: 'Alex Brush';
+	color: white;
+}
+
+a{
+ text-decoration: none;
+ color: white;
+
+
+}
+
+p {
+	text-align:  center;
+	margin-top:100px ;
+	color: black;
+
+}
+
+
+
+img {
+	max-width: 100%;
+	display: block;
+	border-radius: 10px;
+
+}
+
+header {
+	background: #0A0D1D;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	width: 100%;
+	height: 196px;
+	left: 0px;
+	top: 0px; }
+
+/*css do menu */	
+
+.menu {
+
+	display: flex;
+}
+
+.menu li {
+
+	margin-left: 10px;
+}
+.menu li {
+
+	display: black;
+	padding: 10px;
+	background: #F8A428;
+}
+.centro ul {
+
+	display: black;
+	padding: 10px;
+	background: #F8A428;
+}
+.centro li {
+width: 157px;
+height: 244px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+
+color: #F8A428;
+
+
+/* fotos dos container flex 1*/
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+
+.flex1 {
+	display: inline-flex;
+	flex-wrap: wrap;
+	max-width: 2040px ;
+	margin: 0 auto;
+
+}
+
+.flex1 > div {
+	flex: 1 1 200px ;
+	
+	position: absolute;
+width: 434px;
+height: 471px;
+left: 357px;
+top: 253px;
+
+filter: drop-shadow(0px 4px 4px rgba(10, 13, 29, 0.1));
+border-radius: 24px;
+
+}
+
+.flex1 > div > p {
+	position: absolute;
+width: 434px;
+height: 471px;
+left: 357px;
+top: 253px;
+ 	
+
+}
+
+
+/* fotos dos container flex 2*/
+
+.flex2 {
+	display: inline-flex;
+	flex-wrap: wrap;
+	max-width: 2040px ;
+	margin: 0 auto;
+
+}
+
+.flex2 > div {
+	flex: 1 1 200px ;
+	
+position: absolute;
+width: 434px;
+height: 371px;
+left: 804px;
+top: 253px;
+
+filter: drop-shadow(0px 4px 4px rgba(10, 13, 29, 0.1));
+border-radius: 24px;
+
+}
+
+
+/* fotos dos container flex 3*/
+
+
+.flex3 {
+	display: inline-flex;
+	flex-wrap: wrap;
+	max-width: 2040px ;
+	margin: 0 auto;
+
+}
+
+.flex3 > div {
+	flex: 1 1 200px ;
+	
+position: absolute;
+width: 434px;
+height: 371px;
+left: 357px;
+top: 617px;
+
+
+filter: drop-shadow(0px 4px 4px rgba(10, 13, 29, 0.1));
+border-radius: 24px;
+
+}
+
+
+/* fotos dos container flex 4*/
+
+.flex4 {
+	display: inline-flex;
+	flex-wrap: wrap;
+	max-width: 2040px ;
+	margin: 0 auto;
+
+}
+
+.flex4 > div {
+	flex: 1 1 200px ;
+
+position: absolute;
+width: 434px;
+height: 371px;
+left: 804px;
+top: 617px;
+
+filter: drop-shadow(0px 4px 4px rgba(10, 13, 29, 0.1));
+border-radius: 24px;
+}
+
+
+
+/*rodape*/
+
+ footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #0A0D1D;
+    color: #FFF;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 1017px;    
+    text-align: center;
+    line-height: 100px;
+}
+ 
+
+/* Botão Sair */ 
+
+.sair {
+
+	display: flex;
+}
+.sair a {
+
+	display: black;
+	padding: 15px;
+	width: 30px;
+    height: 10px;
+	background: #F8A428;
+
+}
+ /* css do input dos botões de contato e agendamento*/
+input[type=submit]{
+
+	background-color: #F8A428;
+	border: none;
+	cursor: pointer;
+	width: 200px;
+	height: 40px;
+	font-family: 'Alex Brush';
+	border-radius: 70px;
+
+}
+
+
+/*css do cadastrado*/
+
+
+
+
+
+
+

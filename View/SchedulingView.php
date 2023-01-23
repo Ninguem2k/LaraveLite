@@ -5,6 +5,8 @@ class SchedulingView
     public function exibirPaginaAgendamento()
     {
         echo "
+                <form action='/pedido/agendar' method='post'>
+
                 <label>Data:</label>
                 <input type='date' name='data'>
 
@@ -18,7 +20,7 @@ class SchedulingView
                 <textarea name='descricao'></textarea>
 
                 <input type='submit' value='Agendar'>
-            ";
+           </form>";
     }
 
     public function exibirPaginaVisualizacao($agendamento)
@@ -35,7 +37,7 @@ class SchedulingView
             <p>Hora de Início: $hora_inicio</p>
             <p>Hora de Fim: $hora_fim</p>
             <p>Descrição: $descricao</p>
-            <a href='/editar/$id'>Editar</a>
+            <a href='/pedido/editar/$id'>Editar</a>
             ";
     }
 
@@ -48,7 +50,7 @@ class SchedulingView
         $descricao = $agendamento['descricao'];
 
         echo "
-            <form action='/editar/$id' method='post'>
+            <form action='/pedido/editar/$id' method='post'>
                 <label>Data:</label>
                 <input type='date' name='data' value='$data'>
 
@@ -67,39 +69,8 @@ class SchedulingView
 
     public function exibirPaginaListagem($agendamentos)
     {
-        echo "<table>
-        <tr>
-            <th>ID</th>
-            <th>Data</th>
-            <th>Hora de Início</th>
-            <th>Hora de Fim</th>
-            <th>Descrição</th>
-            <th>Ações</th>
-        </tr>";
-
-        foreach ($agendamentos as $agendamento) {
-            $id = $agendamento['id'];
-            $data = $agendamento['data'];
-            $hora_inicio = $agendamento['hora_inicio'];
-            $hora_fim = $agendamento['hora_fim'];
-            $descricao = $agendamento['descricao'];
-
-            echo "
-        <tr>
-            <td>$id</td>
-            <td>$data</td>
-            <td>$hora_inicio</td>
-            <td>$hora_fim</td>
-            <td>$descricao</td>
-            <td>
-                <a href='/visualizar/$id'>Visualizar</a>
-                <a href='/editar/$id'>Editar</a>
-                <a href='/excluir/$id'>Excluir</a>
-            </td>
-        </tr>";
-        }
-
-        echo "</table>";
+        $pagina = "View\Agenda.php";
+        return include('View\layouts\defalt.php');
     }
 
 

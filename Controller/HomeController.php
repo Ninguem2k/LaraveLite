@@ -3,6 +3,7 @@ class HomeController
 {
     public function index()
     {
-        return;
+        $pagina = "View\home.php";
+        return include('View\layouts\defalt.php');
     }
 }

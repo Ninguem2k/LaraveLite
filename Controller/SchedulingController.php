@@ -20,6 +20,7 @@ class SchedulingController
             $horaInicio = $_POST["hora_inicio"];
             $horaFim = $_POST["hora_fim"];
             $descricao = $_POST["descricao"];
+
             if ($this->model->verificarDisponibilidade($data, $horaInicio, $horaFim)) {
                 if ($this->model->agendar($data, $horaInicio, $horaFim, $descricao)) {
                     $this->view->exibirMensagem("Agendamento criado com sucesso!");
@@ -38,7 +39,6 @@ class SchedulingController
     {
         $agendamento = $this->model->obterAgendamentoPorId($id);
         if ($agendamento) {
-
             $this->view->exibirPaginaVisualizacao($agendamento);
         } else {
             $this->view->exibirMensagem("Agendamento não encontrado.");

@@ -1,8 +1,6 @@
 <?php
 
 require_once "./Model/UserModel.php";
-require_once "./View/LoginView.php";
-require_once "./View/RegisterView.php";
 
 class AuthController
 {
@@ -14,8 +12,6 @@ class AuthController
     public function __construct()
     {
         $this->model = new UserModel();
-        $this->viewLogin = new LoginView();
-        $this->viewRegister  = new RegisterView();
     }
 
     public function login()
@@ -25,12 +21,15 @@ class AuthController
             $password = $_POST["password"];
             $result = $this->model->login($username, $password);
             if (isset($result['username_err']) || isset($result['password_err'])) {
-                $this->viewLogin->displayLogin($result);
+                $result;
+                $pagina = "View\Login.php";
+                return include('View\layouts\defalt.php');
             } else {
                 header("location: dashboard.php");
             }
         } else {
-            $this->viewLogin->displayLogin();
+            $pagina = "logar.php";
+            return include('View\layouts\defalt.php');
         }
     }
 

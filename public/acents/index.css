@@ -1,0 +1,78 @@
+
+html,
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: #0A0D1D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+    font-weight: 900;
+}
+
+h1 {
+    color: #F8A428;
+    padding: 20px
+}
+
+.middle {
+    height: max-content;
+    width: max-content;
+    background-color: #0A0D1D;
+    border-radius: 30px;
+    padding: 70px;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* servico */
+.textoservico{
+    background: #0A0D1D;
+    border-radius: 20px;
+    color : #F8A428;
+    font-family: cursive;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+    width: 450px;
+    padding: 20px;
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+
+.servico {
+    width: 450px;
+    font-size: 20px;
+    font-family: cursive;
+    background-color: #0A0D1D;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    color: #F8A428;
+}
+
+
+/* salvar*/
+.save { 
+    background: #F8A428;
+    border-radius: 20px;
+    color : ;black
+    font-family: cursive;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 50px;
+    width: 450px;
+    padding: 20px;
+    font-size: 20px;
+}
+

@@ -9,9 +9,11 @@ class View
         $this->view = $view;
     }
 
-    public function with($key, $value)
+    public function with($data)
     {
-        $this->data[$key] = $value;
+        foreach ($data as $key => $value) {
+            $this->data[$key] = $value;
+        }
         return $this;
     }
 

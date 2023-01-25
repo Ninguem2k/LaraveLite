@@ -31,18 +31,18 @@ class SchedulingModel
         }
     }
 
-    public function agendar($data, $horaInicio, $horaFim, $descricao)
+    public function agendar($data, $horaInicio, $horaFim, $servico)
     {
-        $sql = "INSERT INTO agendamentos (data, hora_inicio, hora_fim, descricao) VALUES (:data, :hora_inicio, :hora_fim, :descricao)";
+        $sql = "INSERT INTO agendamentos (data, hora_inicio, hora_fim, servico) VALUES (:data, :hora_inicio, :hora_fim, :servico)";
         if ($stmt = $this->pdo->prepare($sql)) {
             $stmt->bindParam(":data", $param_data, PDO::PARAM_STR);
             $stmt->bindParam(":hora_inicio", $param_hora_inicio, PDO::PARAM_STR);
             $stmt->bindParam(":hora_fim", $param_hora_fim, PDO::PARAM_STR);
-            $stmt->bindParam(":descricao", $param_descricao, PDO::PARAM_STR);
+            $stmt->bindParam(":servico", $param_servico, PDO::PARAM_STR);
             $param_data = $data;
             $param_hora_inicio = $horaInicio;
             $param_hora_fim = $horaFim;
-            $param_descricao = $descricao;
+            $param_servico = $servico;
             if ($stmt->execute()) {
                 return true;
             } else {
@@ -80,20 +80,20 @@ class SchedulingModel
         }
     }
 
-    public function atualizarAgendamento($id, $data, $horaInicio, $horaFim, $descricao)
+    public function atualizarAgendamento($id, $data, $horaInicio, $horaFim, $servico)
     {
-        $sql = "UPDATE agendamentos SET data = :data, hora_inicio = :hora_inicio, hora_fim = :hora_fim, descricao = :descricao WHERE id = :id";
+        $sql = "UPDATE agendamentos SET data = :data, hora_inicio = :hora_inicio, hora_fim = :hora_fim, servico = :servico WHERE id = :id";
         if ($stmt = $this->pdo->prepare($sql)) {
             $stmt->bindParam(":id", $param_id, PDO::PARAM_INT);
             $stmt->bindParam(":data", $param_data, PDO::PARAM_STR);
             $stmt->bindParam(":hora_inicio", $param_hora_inicio, PDO::PARAM_STR);
             $stmt->bindParam(":hora_fim", $param_hora_fim, PDO::PARAM_STR);
-            $stmt->bindParam(":descricao", $param_descricao, PDO::PARAM_STR);
+            $stmt->bindParam(":servico", $param_servico, PDO::PARAM_STR);
             $param_id = $id;
             $param_data = $data;
             $param_hora_inicio = $horaInicio;
             $param_hora_fim = $horaFim;
-            $param_descricao = $descricao;
+            $param_servico = $servico;
             if ($stmt->execute()) {
                 return true;
             } else {

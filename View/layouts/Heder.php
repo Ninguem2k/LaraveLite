@@ -17,10 +17,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="home">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?PHP $_SERVER['HTTP_HOST'] ?>/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pedido/listar">Agenda</a>
+                        <a class="nav-link" href="<?PHP $_SERVER['HTTP_HOST'] ?>/pedido/agenda">Agenda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#servicos">Servicos</a>
@@ -38,14 +38,14 @@
                 <?php if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) { ?>
                     <div class="d-flex">
                         <label class="form-control me-2">Visitante</label>
-                        <a href="logar" style="text-decoration: none;">
+                        <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/logar" style="text-decoration: none;">
                             <button class=" btn btn-outline-success" type="submit">Logar</button>
                         </a>
                     </div>
                 <?php } else { ?>
                     <div class="d-flex">
                         <label class="form-control me-2"><?php echo $_SESSION['username']; ?></label>
-                        <a href="Controller\LogoutController.php" style="text-decoration: none;">
+                        <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/Controller/LogoutController.php" style="text-decoration: none;">
                             <button class=" btn btn-outline-danger" type="submit">Sair</button>
                         </a>
                     </div>

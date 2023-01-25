@@ -19,7 +19,7 @@ class UserModel
         if (empty(trim($username))) {
             $username_err = "Por favor coloque um nome de usuário.";
         } else {
-            $sql = "SELECT id, username, password FROM users WHERE username = :username";
+            $sql = "SELECT id, username, role, password FROM users WHERE username = :username";
             if ($stmt = $this->pdo->prepare($sql)) {
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
                 $param_username = trim($username);

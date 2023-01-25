@@ -5,5 +5,6 @@ $_SESSION = array();
 
 session_destroy();
 
-header("location: logar");
+$url = $_SERVER['HTTP_HOST'];
+header("location: $url/logar");
 exit;

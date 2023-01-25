@@ -20,7 +20,7 @@
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pedido/listar">Agenda</a>
+                        <a class="nav-link" href="pedido/agenda">Agenda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#servicos">Servicos</a>
@@ -57,7 +57,7 @@
 
 <body>
 
-    <?php include_once "$pagina"; ?>
+    -->
 
     <footer id="contato" style="background-color: #0A0D1D; float: bootton;">
         <div class="container">

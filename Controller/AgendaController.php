@@ -20,6 +20,7 @@ class AgendaController extends kernel
 
     public function store()
     {
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = $_POST["data"];
             $horaInicio = $_POST["hora_inicio"];

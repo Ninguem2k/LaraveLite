@@ -1,14 +1,6 @@
-<?PHP session_start(); ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-    <title>Home</title>
-</head>
+<?php include_once "View\layouts\Heder.php" ?>
 <header>
+    <title>Home</title>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0A0D1D;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Barbearia do Heitor</a>
@@ -80,7 +72,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="#" class="btn btn-primary">Agende hoje!</a>
+                <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/agendar" class="btn btn-primary">Agende hoje!</a>
             </div>
         </div>
     </section>
@@ -162,3 +154,4 @@
             </div>
         </div>
     </section>
+    <?php include_once "View\layouts\Footer.php" ?>

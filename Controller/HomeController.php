@@ -1,9 +1,10 @@
 <?php
-class HomeController
+
+require_once "Class\kernel.php";
+class HomeController extends kernel
 {
     public function index()
     {
-        $pagina = "View\home.php";
-        return include('View\layouts\defalt.php');
+        return $this->view('View\home.php', []);
     }
 }

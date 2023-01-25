@@ -19,18 +19,18 @@
 
 <div class="container-fluid text-center" style="margin-top: 3.5rem ;  background-color: #212529fa; ">
 
-
+    <?php var_dump($id_servico) ?>
     <div class="d-flex  align-items-center justify-content-center" style="height: 100vh;">
 
-        <form action='/pedido/agendar' method='post'>
+        <form action='/pedido/editar/<?php $id_servico ?>' method='post'>
             <div class=" form-group">
                 <label>Data:</label>
-                <input type='date' name='data' class="form-control">
+                <input type='date' name='data' <?php "value ='$data'" ?>class="form-control">
             </div>
 
             <div class="form-group">
                 <label>Hora de Início:</label>
-                <input type='time' name='hora_inicio' class="form-control">
+                <input type='time' name='hora_inicio' value="<?php $agendamento['hora_inicio']  ?>" class="form-control">
             </div>
 
             <?php if (isset($exibirMensagem)) { ?>
@@ -39,13 +39,13 @@
 
             <div class="form-group" style="display: none;">
                 <label>Hora de Fim:</label>
-                <input type='time' name='hora_fim' class="form-control">
+                <input type='time' name='hora_fim' value="<?php $agendamento['hora_fim']  ?>" class="form-control">
             </div>
 
             <div>
                 <p class="textoservico">Selecione o Serviço:</p>
             </div>
-            <select name="servico" class="servico" id="servico">
+            <select name="servico" class="servico" id="servico" value="<?php $agendamento['servico']  ?>">
                 <option value="" time="10" selected>Selecionar</option>
                 <option value="Corte Masculino" time="10">Corte Masculino</option>
                 <option value="Limpeza de Rosto" time="20">Limpeza de Rosto</option>
@@ -54,7 +54,7 @@
             <div class="form-group">
             </div>
 
-            <input type='submit' value='Agendar' class="btn btn-primary m-3">
+            <input type='submit' value='Atualizar' class="btn btn-primary m-3">
         </form>
     </div>
 

@@ -45,4 +45,52 @@ class AgendaController extends kernel
         $agendamentos = $this->model->obterAgendamentos();
         return $this->view('View\Agenda.php', ["agendamentos" => $agendamentos]);
     }
+
+    public function index($id)
+    {
+        $agendamento = $this->model->obterAgendamentoPorId($id);
+        if ($agendamento) {
+            return $this->view('View\VisualizarSevico.php', ["agendamento" => $agendamento]);
+        } else {
+            return $this->view('View\VisualizarSevico.php', ["exibirMensagem" => "Agendamento não encontrado"]);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $agendamentos = $this->model->obterAgendamentos();
+        if ($this->model->excluirAgendamento($id)) {
+            return $this->view('View\Agenda.php', ["exibirMensagem" => "Agendamento excluído com sucesso!", "agendamentos" => $agendamentos]);
+        } else {
+            return $this->view('View\Agenda.php', ["exibirMensagem" => "Ops! Algo deu errado. Por favor, tente novamente mais tarde.", "agendamentos" => $agendamentos]);
+        }
+    }
+
+    public function update($id)
+    {
+        $agendamentos = $this->model->obterAgendamentos();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $data = $_POST["data"];
+            $horaInicio = $_POST["hora_inicio"];
+            $horaFim = $_POST["hora_fim"];
+            $descricao = $_POST["descricao"];
+            if ($this->model->verificarDisponibilidade($data, $horaInicio, $horaFim, $id)) {
+                if ($this->model->atualizarAgendamento($id, $data, $horaInicio, $horaFim, $descricao)) {
+                    $MSG = "Agendamento atualizado com sucesso!";
+                } else {
+                    $MSG = "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
+                }
+            } else {
+                $MSG = "Este horário já está reservado.";
+            }
+        } else {
+            $agendamento = $this->model->obterAgendamentoPorId($id);
+            if ($agendamento) {
+                return $this->view('View\EditarServico.php', ["agendamento" => $agendamento, "id_servico" => $id]);
+            } else {
+                $MSG = "Agendamento não encontrado";
+            }
+        }
+        return $this->view('View\Agenda.php', ["exibirMensagem" => $MSG, "agendamentos" => $agendamentos]);
+    }
 }

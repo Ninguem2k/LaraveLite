@@ -18,6 +18,14 @@
                      </head>
 
                      <div class="container-fluid" style="margin-top: 3.5rem; background-color: #212529fa;">
+                         <center>
+                             <h5 style="color:#F8A428" ;>
+                                 <?php
+                                    if (isset($exibirMensagem)) {
+                                        echo ($exibirMensagem);
+                                    } ?>
+                             </h5>
+                         </center>
                          <?php if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && $_SESSION["loggedin"] != "role_admin") { ?>
                              <center>
                                  <input type="submit" class="m-2" value="Agende Um Horario">

@@ -1,0 +1,93 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* ______________________________________________________________ */
+
+
+div#corpo-form h1,
+div#corpo-form-Cad h1 {
+  text-align: center;
+  padding: 20px;
+
+}
+
+h1 {
+  color: yellow;
+
+}
+
+a {
+  color: yellow;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type=submit] {
+
+  background-color: #FF0066;
+  border: none;
+  cursor: pointer;
+
+}
+
+::-webkit-input-placeholder {
+  /*Webkit browsers */
+  color: #fff;
+}
+
+:-moz-placeholder {
+  /*Mozilla Firefox 4 to 18 */
+  color: #fff;
+
+}
+
+::-moz-placeholder {
+  /* Mozilla Fiere Fox 19+ */
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  /*Internet Explorer 10+ */
+  color: #fff;
+}

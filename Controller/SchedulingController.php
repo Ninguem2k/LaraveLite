@@ -1,16 +1,13 @@
 <?php
 
 require_once "./Model/SchedulingModal.php";
-require_once "./View/SchedulingView.php";
 class SchedulingController
 {
     private $model;
-    private $view;
 
     public function __construct()
     {
         $this->model = new SchedulingModel();
-        $this->view = new SchedulingView();
     }
 
     public function store()

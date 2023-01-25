@@ -9,6 +9,7 @@ $router->add("", "HomeController@index");
 $router->add("home", "HomeController@index");
 $router->add("logar", "AuthController@login");
 $router->add("cadastrar", "AuthController@register");
+$router->add("agendar", "AgendaController@view");
 $router->add("pedido/listar", "SchedulingController@show");
 $router->add("pedido/agendar", "SchedulingController@store");
 $router->add("pedido/editar/([0-9]+)", "SchedulingController@update");

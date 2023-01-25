@@ -1,19 +1,40 @@
                            <head>
                                <title>Agenda</title>
+                               <style>
+                                   input[type=submit] {
+
+                                       background-color: #F8A428;
+                                       border: none;
+                                       cursor: pointer;
+                                       width: 200px;
+                                       height: 40px;
+                                       font-family: 'Alex Brush';
+                                       border-radius: 70px;
+
+                                   }
+                               </style>
                            </head>
-                           <div class="card-body" style="padding: 0;">
+
+                           <div class="container-fluid" style="margin-top: 3.5rem; background-color: #212529fa;">
+
+                               <center>
+                                   <input type="submit" class="m-2" value="Agende Um Horario">
+                               </center>
+
                                <div class="row">
-                                   <div class="table-overflow">
-                                       <div class="col-md-12">
-                                           <table>
+                                   <div class="table-responsive" style="height: 100vh; ">
+                                       <table class="table table-dark table-sm">
+                                           <thead>
                                                <tr>
-                                                   <th>ID</th>
-                                                   <th>Data</th>
-                                                   <th>Hora de Início</th>
-                                                   <th>Hora de Fim</th>
-                                                   <th>Descrição</th>
-                                                   <th>Ações</th>
+                                                   <th scope="col">ID</th>
+                                                   <th scope="col">Data</th>
+                                                   <th scope="col">Hora de Início</th>
+                                                   <th scope="col">Hora de Fim</th>
+                                                   <th scope="col">Descrição</th>
+                                                   <th scope="col">Ações</th>
                                                </tr>
+                                           </thead>
+                                           <tbody>
                                                <?php foreach ($agendamentos as $agendamento) {
                                                     $id = $agendamento['id'];
                                                     $data = $agendamento['data'];
@@ -35,48 +56,8 @@
                                                             </td>
                                                         </tr>";
                                                 } ?>
-                                               <table>
-                                       </div>
+                                           </tbody>
+                                       </table>
                                    </div>
                                </div>
                            </div>
-
-                           <style type="text/css">
-                               .table-overflow {
-                                   width: 100%;
-                                   min-height: 400px;
-                                   max-height: 400px;
-                                   overflow-y: auto;
-                                   /*background: yellow*/
-                               }
-
-                               .dropdown-content {
-                                   display: none;
-                                   position: absolute;
-                                   right: 0;
-                                   background-color: #f9f9f9;
-                                   min-width: 160px;
-                                   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                                   z-index: 10;
-                               }
-
-                               .dropdown-content a {
-                                   border: 1px solid white;
-                                   color: black;
-                                   padding: 12px 16px;
-                                   text-decoration: none;
-                                   display: block;
-                               }
-
-                               .dropdown-content a:hover {
-                                   color: white;
-                               }
-
-                               .dropdown:hover .dropdown-content {
-                                   display: block;
-                               }
-
-                               .dropdown:hover .dropbtn {
-                                   background-color: #3e8e41;
-                               }
-                           </style>

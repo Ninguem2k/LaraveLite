@@ -29,11 +29,14 @@ class UserModel
                             $id = $row["id"];
                             $username = $row["username"];
                             $hashed_password = $row["password"];
+                            $role = $row["role"];
+
                             if (password_verify($password, $hashed_password)) {
                                 session_start();
                                 $_SESSION["loggedin"] = true;
                                 $_SESSION["id"] = $id;
                                 $_SESSION["username"] = $username;
+                                $_SESSION["role"] = $role;
                                 return true;
                             } else {
                                 $password_err = "A senha que você digitou não é válida.";
@@ -51,7 +54,7 @@ class UserModel
         return array("username_err" => $username_err, "password_err" => $password_err);
     }
 
-    public function registrar($username, $password, $confirm_password)
+    public function registrar($username, $whatsapp, $password, $confirm_password)
     {
         $username_err = $password_err = $confirm_password_err = "";
 
@@ -91,13 +94,15 @@ class UserModel
         }
 
         if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
-            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
+            $sql = "INSERT INTO users (username, whatsapp, password) VALUES (:username, :whatsapp, :password)";
             if ($stmt = $this->pdo->prepare($sql)) {
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+                $stmt->bindParam(":whatsapp", $param_whatsapp, PDO::PARAM_STR);
                 $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
 
                 $param_username = $username;
+                $param_whatsapp = $whatsapp;
                 $param_password = password_hash($password, PASSWORD_DEFAULT);
 
                 if ($stmt->execute()) {

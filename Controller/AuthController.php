@@ -6,8 +6,6 @@ class AuthController
 {
 
     private $model;
-    private $viewLogin;
-    private $viewRegister;
 
     public function __construct()
     {
@@ -21,15 +19,13 @@ class AuthController
             $password = $_POST["password"];
             $result = $this->model->login($username, $password);
             if (isset($result['username_err']) || isset($result['password_err'])) {
-                $result;
-                $pagina = "View\Login.php";
-                return include('View\layouts\defalt.php');
+                $errors = $result;
+                return include('View\Login.php');
             } else {
-                header("location: dashboard.php");
+                header("location: home");
             }
         } else {
-            $pagina = "logar.php";
-            return include('View\layouts\defalt.php');
+            return include('View\Login.php');
         }
     }
 
@@ -38,15 +34,17 @@ class AuthController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_POST["username"];
             $password = $_POST["password"];
+            $whatsapp = $_POST["whatsapp"];
             $confirm_password = $_POST["confirm_password"];
-            $result = $this->model->registrar($username, $password, $confirm_password);
+            $result = $this->model->registrar($username, $whatsapp, $password, $confirm_password);
             if (isset($result['username_err']) || isset($result['password_err']) || isset($result['confirm_password_err'])) {
-                $this->viewRegister->displayRegistro($result);
+                $errors = $result;
+                return include('View\Register.php');
             } else {
-                header("location: login.php");
+                return include('View\Login.php');
             }
         } else {
-            $this->viewRegister->displayRegistro();
+            return include('View\Register.php');
         }
     }
 }

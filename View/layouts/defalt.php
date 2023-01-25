@@ -1,3 +1,4 @@
+<?PHP session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pedido/listar">Agenda</a>
@@ -34,10 +35,21 @@
                         <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="logar">
-                    <label class="form-control me-2">Visitante</label>
-                    <button class=" btn btn-outline-success" type="submit">Logar</button>
-                </form>
+                <?php if ($_SESSION['loggedin'] == "true") { ?>
+                    <div class="d-flex">
+                        <label class="form-control me-2"><?php echo $_SESSION['username']; ?></label>
+                        <a href="logar" style="text-decoration: none;">
+                            <button class=" btn btn-outline-danger" type="submit">Sair</button>
+                        </a>
+                    </div>
+                <?php } else { ?>
+                    <div class="d-flex">
+                        <label class="form-control me-2">Visitante</label>
+                        <a href="logar" style="text-decoration: none;">
+                            <button class=" btn btn-outline-success" type="submit">Logar</button>
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </nav>
@@ -47,7 +59,7 @@
 
     <?php include_once "$pagina"; ?>
 
-    <footer id="contato" style="background-color: #0A0D1D; bottom:-15px;">
+    <footer id="contato" style="background-color: #0A0D1D; float: bootton;">
         <div class="container">
             <h2 class="text-center text-white">Contato</h2>
             <div class="row  d-flex  align-items-center">

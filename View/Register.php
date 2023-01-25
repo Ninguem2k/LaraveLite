@@ -14,8 +14,12 @@ if (isset($errors['password_err'])) {
 } else {
     $errors['password_err'] = null;
 }
-
-// $arrayErros = ["username_err", "password_err"];
+if (isset($errors['confirm_password_err'])) {
+    $errors['confirm_password_err'];
+} else {
+    $errors['confirm_password_err'] = null;
+}
+// $arrayErros = ["username_err", "password_err", "confirm_password_err"];
 // $_POST['username'] = isset($_POST['username']) ? $_POST['username'] : NULL;
 // foreach ($arrayErros as $key => $value) {
 //     $errors[$key] = isset($errors[$arrayErros[$key]]) ? $errors[$arrayErros[$key]] : null;
@@ -33,6 +37,14 @@ if (isset($errors['password_err'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
     <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -46,19 +58,28 @@ if (isset($errors['password_err'])) {
 <body class="text-center">
 
     <main class="form-signin" id="corpo-form">
-        <form action="logar" method="post">
+        <form action="cadastrar" method="post">
             <div class="form-group">
                 <label for="username">Nome de Usuario</label>
                 <input type="text" name="username" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Nome de usuário" value="<?php $_POST['username'] ?>">
                 <span class="error"><?php echo ($errors['username_err']) ?></span>
             </div>
             <div class="form-group">
+                <label for="exampleInputPassword1">Whatsapp</label>
+                <input type="text" name="whatsapp" class="form-control" id="exampleInputWhatsapp1" placeholder="(99) 99999-9999">
+            </div>
+            <div class="form-group">
                 <label for="exampleInputPassword1">Senha</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 <span class="error"><?php echo ($errors['password_err']) ?></span>
             </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Confirme a Senha</label>
+                <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="repita sua Senha">
+                <span class="error"><?php echo ($errors['confirm_password_err']) ?></span>
+            </div>
             <button type="submit" class="btn btn-primary">Logar</button>
-            <p>Não tem uma conta? <a href="cadastrar">Cadastre-se agora</a>.</p>
+            <p>Já tem uma conta? <a href="logar">Faça login agora</a>.</p>
         </form>
     </main>
 </body>

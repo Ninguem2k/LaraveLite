@@ -86,6 +86,25 @@ class SchedulingModel
     }
 
 
+    public function relacionamentoUserAgenda($user_id)
+    {
+
+        $sql = "SELECT users.username
+            FROM users
+            JOIN agendamentos ON users.id = agendamentos.user_id
+            WHERE agendamentos.id = $user_id;
+            SELECT users.username, agendamentos.id
+            FROM users
+            JOIN agendamentos ON users.id = agendamentos.user_id
+            WHERE agendamentos.id = $user_id";
+        if ($stmt = $this->pdo->prepare($sql)) {
+            if ($stmt->execute()) {
+                return $stmt->fetch(PDO::FETCH_ASSOC);
+            } else {
+                echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
+            }
+        }
+    }
     public function obterAgendamentoPorId($id)
     {
         $sql = "SELECT * FROM agendamentos WHERE id = :id";

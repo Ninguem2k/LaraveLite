@@ -38,13 +38,12 @@
                                             $hora_inicio = $agendamento['hora_inicio'];
                                             $hora_fim = $agendamento['hora_fim'];
                                             $servico = $agendamento['servico'];
-                                            $user = "Suporte";
-
+                                            $username = $user['username'];
                                             echo "
                                                         <tr>
                                                             <td>$id</td>
                                                             <td>$data</td>
-                                                            <td>$user</td>
+                                                            <td>$username</td>
                                                             <td>$hora_inicio</td>
                                                             <td>$hora_fim</td>
                                                             <td>$servico</td>

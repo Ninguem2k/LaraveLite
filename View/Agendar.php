@@ -23,6 +23,10 @@
     <div class="d-flex  align-items-center justify-content-center" style="height: 100vh;">
 
         <form action='/pedido/agendar' method='post'>
+
+            <center>
+                <input type="button" class="m-2" value="Horarios disponiveis">
+            </center>
             <div class=" form-group">
                 <label>Data:</label>
                 <input type='date' name='data' class="form-control">

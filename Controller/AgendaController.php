@@ -56,8 +56,9 @@ class AgendaController extends kernel
     public function index($id)
     {
         $agendamento = $this->model->obterAgendamentoPorId($id);
+        $user =  $this->model->relacionamentoUserAgenda($id);
         if ($agendamento) {
-            return $this->view('View\VisualizarSevico.php', ["agendamento" => $agendamento]);
+            return $this->view('View\VisualizarSevico.php', ["agendamento" => $agendamento, "user" => $user]);
         } else {
             return $this->view('View\VisualizarSevico.php', ["exibirMensagem" => "Agendamento não encontrado"]);
         }

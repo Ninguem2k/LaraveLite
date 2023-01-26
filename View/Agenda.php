@@ -68,7 +68,9 @@
           </div>
       <?php } else { ?>
           <center>
-              <input type="submit" class="m-2" value="Agende Um Horario">
+              <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/agendar">
+                  <input type="submit" class="m-2" value="Agende Um Horario">
+              </a>
           </center>
 
           <div class="row">

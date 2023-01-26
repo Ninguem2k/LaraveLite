@@ -26,7 +26,7 @@
                 } ?>
           </h5>
       </center>
-      <?php if (isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true || $_SESSION["role"] == "role_admin") { ?>
+      <?php if (isset($_SESSION["loggedin"]) && $_SESSION["role"] == "role_admin") { ?>
           <div class="row">
               <div class="table-responsive" style="height: 100vh; ">
                   <table class="table table-dark table-sm">

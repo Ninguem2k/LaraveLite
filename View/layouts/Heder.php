@@ -35,7 +35,7 @@
                         <a class="nav-link" href="#contato">Contato</a>
                     </li>
                 </ul>
-                <?php if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) { ?>
+                <?php if (!isset($_SESSION["loggedin"])) { ?>
                     <div class="d-flex">
                         <label class="form-control me-2">Visitante</label>
                         <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/logar" style="text-decoration: none;">

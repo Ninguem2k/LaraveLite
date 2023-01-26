@@ -19,13 +19,18 @@
 
 <div class="container-fluid text-center" style="margin-top: 3.5rem ;  background-color: #212529fa; ">
 
-    <?php var_dump($id_servico) ?>
+    <?= $id = $agendamento['id'];
+    $data = $agendamento['data'];
+    $hora_inicio = $agendamento['hora_inicio'];
+    $hora_fim = $agendamento['hora_fim'];
+    $servico = $agendamento['servico']; ?>
+
     <div class="d-flex  align-items-center justify-content-center" style="height: 100vh;">
 
-        <form action='/pedido/editar/<?php $id_servico ?>' method='post'>
+        <form action='/pedido/editar/<?php echo $agendamento['id'] ?>' method='post'>
             <div class=" form-group">
                 <label>Data:</label>
-                <input type='date' name='data' <?php "value ='$data'" ?>class="form-control">
+                <input type='date' name='data' value='echo $data' class="form-control">
             </div>
 
             <div class="form-group">

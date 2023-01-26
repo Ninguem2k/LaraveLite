@@ -66,6 +66,26 @@ class SchedulingModel
             }
         }
     }
+
+    public function obterAgendamentosUser()
+    {
+        session_start();
+        $id = $_SESSION['id'];
+        $sql = "SELECT * FROM agendamentos WHERE user_id = $id ORDER BY data, hora_inicio";
+        $agendamentos = array();
+        if ($stmt = $this->pdo->prepare($sql)) {
+            if ($stmt->execute()) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $agendamentos[] = $row;
+                }
+                return $agendamentos;
+            } else {
+                echo "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
+            }
+        }
+    }
+
+
     public function obterAgendamentoPorId($id)
     {
         $sql = "SELECT * FROM agendamentos WHERE id = :id";

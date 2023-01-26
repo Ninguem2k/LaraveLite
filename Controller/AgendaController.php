@@ -47,6 +47,12 @@ class AgendaController extends kernel
         return $this->view('View\Agenda.php', ["agendamentos" => $agendamentos]);
     }
 
+    public function userShow()
+    {
+        $agendamentos = $this->model->obterAgendamentosUser();
+        return $this->view('View\UserAgenda.php', ["agendamentos" => $agendamentos]);
+    }
+
     public function index($id)
     {
         $agendamento = $this->model->obterAgendamentoPorId($id);

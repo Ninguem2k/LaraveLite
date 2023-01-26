@@ -1,4 +1,8 @@
-<?PHP session_start(); ?>
+<?PHP
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +48,9 @@
                     </div>
                 <?php } else { ?>
                     <div class="d-flex">
-                        <label class="form-control me-2"><?php echo $_SESSION['username']; ?></label>
+                        <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/user/agenda">
+                            <label class="form-control me-2"><?php echo $_SESSION['username']; ?></label>
+                        </a>
                         <a href="<?PHP $_SERVER['HTTP_HOST'] ?>/Controller/LogoutController.php" style="text-decoration: none;">
                             <button class=" btn btn-outline-danger" type="submit">Sair</button>
                         </a>

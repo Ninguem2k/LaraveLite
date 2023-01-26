@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label>Hora de Início:</label>
-                <input type='time' name='hora_inicio' class="form-control">
+                <input type='time' name='hora_inicio' id="timeInicial" class="form-control">
             </div>
 
             <?php if (isset($exibirMensagem)) { ?>
@@ -42,18 +42,17 @@
             <?php } ?>
 
             <div class="form-group" style="display: none;">
-                <label>Hora de Fim:</label>
-                <input type='time' name='hora_fim' class="form-control">
+                <input type='time' id="timeFinal" name='hora_fim' class="form-control">
             </div>
 
             <div>
                 <p class="textoservico">Selecione o Serviço:</p>
             </div>
             <select name="servico" class="servico" id="servico">
-                <option value="" time="10" selected>Selecionar</option>
-                <option value="Corte Masculino" time="10">Corte Masculino</option>
-                <option value="Limpeza de Rosto" time="20">Limpeza de Rosto</option>
-                <option value="Fazer a Barba" time="15">Fazer a Barba</option>
+                <option value="" data-time="0" selected>Selecionar</option>
+                <option value="Corte Masculino" data-time="110">Corte Masculino</option>
+                <option value="Limpeza de Rosto" data-time="20">Limpeza de Rosto</option>
+                <option value="Fazer a Barba" data-time="15">Fazer a Barba</option>
             </select>
             <div class="form-group">
             </div>
@@ -65,9 +64,21 @@
 </div>
 <script>
     var select = document.getElementById('servico')
-
+    var timeInicial = document.getElementById('timeInicial')
+    var timeFinal = document.getElementById('timeFinal')
     select.addEventListener('change', function() {
-        console.log(select.value)
+        var selectedOption = this.querySelector('option:checked');
+        var time = selectedOption.getAttribute('data-time');
+        var timeArray = timeInicial.value.split(":");
+        var horas = parseInt(timeArray[0]);
+        var minutos = parseInt(timeArray[1]) + parseInt(time);
+        if (minutos >= 59) {
+            minutos = minutos / 60;
+            timeResult = horas + ":" + minutos;
+        } else {
+            timeResult = horas + ":" + minutos;
+        }
+        timeFinal.value = timeResult;
     })
 </script>
 <?php include_once "View\layouts\Footer.php" ?>

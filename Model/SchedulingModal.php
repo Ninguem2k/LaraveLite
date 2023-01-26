@@ -33,12 +33,16 @@ class SchedulingModel
 
     public function agendar($data, $horaInicio, $horaFim, $servico)
     {
-        $sql = "INSERT INTO agendamentos (data, hora_inicio, hora_fim, servico) VALUES (:data, :hora_inicio, :hora_fim, :servico)";
+        $sql = "INSERT INTO agendamentos (user_id,data, hora_inicio, hora_fim, servico) VALUES (:user_id,:data, :hora_inicio, :hora_fim, :servico)";
         if ($stmt = $this->pdo->prepare($sql)) {
+            $stmt->bindParam(":user_id", $param_user_id, PDO::PARAM_STR);
             $stmt->bindParam(":data", $param_data, PDO::PARAM_STR);
             $stmt->bindParam(":hora_inicio", $param_hora_inicio, PDO::PARAM_STR);
             $stmt->bindParam(":hora_fim", $param_hora_fim, PDO::PARAM_STR);
             $stmt->bindParam(":servico", $param_servico, PDO::PARAM_STR);
+
+            session_start();
+            $param_user_id = $_SESSION['id'];
             $param_data = $data;
             $param_hora_inicio = $horaInicio;
             $param_hora_fim = $horaFim;

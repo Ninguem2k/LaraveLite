@@ -26,18 +26,20 @@ if (!isset($_SESSION)) {
                     <li class="nav-item">
                         <a class="nav-link" href="<?PHP $_SERVER['HTTP_HOST'] ?>/pedido/agenda">Agenda</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#servicos">Servicos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#produtos">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#avaliacoes">Avaliações</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
+                    <?php if ($_SERVER['PHP_SELF'] == "/index.php/home") { ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicos">Servicos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#produtos">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#avaliacoes">Avaliações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contato">Contato</a>
+                        </li>
+                    <?php } ?>
                 </ul>
                 <?php if (!isset($_SESSION["loggedin"])) { ?>
                     <div class="d-flex">

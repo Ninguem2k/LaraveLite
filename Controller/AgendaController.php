@@ -81,9 +81,9 @@ class AgendaController extends kernel
             $data = $_POST["data"];
             $horaInicio = $_POST["hora_inicio"];
             $horaFim = $_POST["hora_fim"];
-            $descricao = $_POST["descricao"];
+            $servico = $_POST["servico"];
             if ($this->model->verificarDisponibilidade($data, $horaInicio, $horaFim, $id)) {
-                if ($this->model->atualizarAgendamento($id, $data, $horaInicio, $horaFim, $descricao)) {
+                if ($this->model->atualizarAgendamento($id, $data, $horaInicio, $horaFim, $servico)) {
                     $MSG = "Agendamento atualizado com sucesso!";
                 } else {
                     $MSG = "Ops! Algo deu errado. Por favor, tente novamente mais tarde.";
